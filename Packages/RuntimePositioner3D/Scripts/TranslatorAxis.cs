@@ -11,7 +11,7 @@ namespace Augmencia.RuntimePositioner3D
         internal Vector3 Axis => _axis;
 
         private Positioner3D _positioner;
-        private float _offsetScaledDistance;
+        Vector3 _offset;
         private int _axisIndex = 0;
         private Material _originalMaterial;
 
@@ -49,20 +49,12 @@ namespace Augmencia.RuntimePositioner3D
             if (_collider == hit.collider)
             {
                 Ray screenRay = new Ray(_positioner.Camera.transform.position, (hit.point - _positioner.Camera.transform.position).normalized);
-                for (int i = 0; i < 3; ++i)
+                Plane plane = new Plane((_positioner.Camera.transform.position - _positioner.transform.position).normalized, _positioner.transform.position);
+                if (plane.Raycast(screenRay, out float distance))
                 {
-                    if (i != _axisIndex)
-                    {
-                        Vector3 normal = new Vector3();
-                        normal[i] = 1;
-                        Plane plane = new Plane(_positioner.transform.TransformDirection(normal), _positioner.transform.position);
-                        if (plane.Raycast(screenRay, out float distance))
-                        {
-                            Vector3 point = screenRay.GetPoint(distance);
-                            _offsetScaledDistance = _positioner.transform.InverseTransformPoint(point)[_axisIndex] / transform.lossyScale[_axisIndex];
-                            return true;
-                        }
-                    }
+                    Vector3 point = screenRay.GetPoint(distance);
+                    _offset = _positioner.transform.position - point;
+                    return true;
                 }
             }
             return false;
@@ -71,23 +63,13 @@ namespace Augmencia.RuntimePositioner3D
         internal override void Drag(Vector3 screenPoint)
         {
             Ray screenRay = _positioner.Camera.ScreenPointToRay(screenPoint);
-            for (int i = 0; i < 3; ++i)
+            Plane plane = new Plane((_positioner.Camera.transform.position - _positioner.transform.position).normalized, _positioner.transform.position);
+            if (plane.Raycast(screenRay, out float distance))
             {
-                if (i != _axisIndex)
-                {
-                    Vector3 normal = new Vector3();
-                    normal[i] = 1;
-                    Plane plane = new Plane(_positioner.transform.TransformDirection(normal), _positioner.transform.position);
-                    if (plane.Raycast(screenRay, out float distance))
-                    {
-                        Vector3 point = screenRay.GetPoint(distance);
-                        float axisValue = _positioner.transform.InverseTransformPoint(point)[_axisIndex] - _offsetScaledDistance * transform.lossyScale[_axisIndex];
-                        Vector3 pos = Vector3.zero;
-                        pos[_axisIndex] = axisValue;
-                        _positioner.ManipulatedObject.position = _positioner.transform.TransformPoint(pos);
-                        break;
-                    }
-                }
+                Vector3 point = screenRay.GetPoint(distance) + _offset;
+                Vector3 pos = Vector3.zero;
+                pos[_axisIndex] = _positioner.transform.InverseTransformPoint(point)[_axisIndex];
+                _positioner.ManipulatedObject.position = _positioner.transform.TransformPoint(pos);
             }
         }
     }

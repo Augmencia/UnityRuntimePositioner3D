@@ -2,21 +2,21 @@
 
 Translate, rotate and scale 3D objects in Unity runtime.
 
-Tested with [Unity URP](https://docs.unity3d.com/6000.0/Documentation/Manual/universal-render-pipeline.html) and works only for the [new Input System](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.11/manual/index.html).
+Tested with [Unity URP](https://docs.unity3d.com/6000.0/Documentation/Manual/universal-render-pipeline.html) and works only for the [new Input System](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.14/manual/index.html).
 
 ## Install
 
 1. Open the Package Manager from `Window > Package Manager`
 2. `"+" button > Add package from git URL`
 3. Enter the following
-   * https://github.com/Augmencia/UnityRuntimePositioner3D.git?path=/Packages/RuntimePositioner3D#1.0.1
+   * https://github.com/Augmencia/UnityRuntimePositioner3D.git?path=/Packages/RuntimePositioner3D#1.0.2
 
 Or, open `Packages/manifest.json` and add the following to the dependencies block.
 
 ```json
 {
     "dependencies": {
-         "com.augmencia.runtimepositioner3d": "https://github.com/Augmencia/UnityRuntimePositioner3D.git?path=/Packages/RuntimePositioner3D#1.0.1"
+         "com.augmencia.runtimepositioner3d": "https://github.com/Augmencia/UnityRuntimePositioner3D.git?path=/Packages/RuntimePositioner3D#1.0.2"
     }
 }
 ```
