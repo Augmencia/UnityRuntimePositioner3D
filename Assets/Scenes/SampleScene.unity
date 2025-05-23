@@ -621,21 +621,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5153570005913435434}
     m_Modifications:
-    - target: {fileID: 555660112067502517, guid: 70cc49bf5b383421f928bdd1ee35e73f,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 24cabdb272ae44f23b6e8681126e53da, type: 2}
-    - target: {fileID: 784160452010952030, guid: 70cc49bf5b383421f928bdd1ee35e73f,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 24cabdb272ae44f23b6e8681126e53da, type: 2}
-    - target: {fileID: 2880011261724312686, guid: 70cc49bf5b383421f928bdd1ee35e73f,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: b95260332f80447378aed2211d828810, type: 2}
     - target: {fileID: 4788835390884866113, guid: 70cc49bf5b383421f928bdd1ee35e73f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -661,21 +646,6 @@ PrefabInstance:
       propertyPath: _manipulatedObject
       value: 
       objectReference: {fileID: 5153570005913435434}
-    - target: {fileID: 5725349311605684239, guid: 70cc49bf5b383421f928bdd1ee35e73f,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: b95260332f80447378aed2211d828810, type: 2}
-    - target: {fileID: 6397589340928186380, guid: 70cc49bf5b383421f928bdd1ee35e73f,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 24cabdb272ae44f23b6e8681126e53da, type: 2}
-    - target: {fileID: 7288771405299517353, guid: 70cc49bf5b383421f928bdd1ee35e73f,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: b95260332f80447378aed2211d828810, type: 2}
     - target: {fileID: 8996737266436379558, guid: 70cc49bf5b383421f928bdd1ee35e73f,
         type: 3}
       propertyPath: m_Name
